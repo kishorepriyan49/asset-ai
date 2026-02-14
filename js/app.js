@@ -1,4 +1,4 @@
-let entries = [];
+let entries = JSON.parse(localStorage.getItem("entries")) || [];
 
 // Select elements
 const entryList = document.getElementById("entryList");
@@ -65,6 +65,7 @@ function updateDashboard() {
     totalAssetsEl.textContent = "₹" + totalAssets;
     totalLiabilitiesEl.textContent = "₹" + totalLiabilities;
     netWorthEl.textContent = "₹" + netWorth;
+    localStorage.setItem("entries", JSON.stringify(entries));
 }
 
 
@@ -78,3 +79,4 @@ function deleteEntry(id) {
     entries = entries.filter(entry => entry.id !== id);
     updateDashboard();
 }
+updateDashboard();
