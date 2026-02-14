@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -44,7 +44,10 @@ body {
 }
 
 header h1 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #111827;
 }
 
 /* Cards */
@@ -60,6 +63,12 @@ header h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card h3 {
@@ -68,8 +77,9 @@ header h1 {
 }
 
 .card p {
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
 }
 
 /* Form Section */
@@ -120,23 +130,26 @@ header h1 {
 }
 
 .delete-btn {
-    background: #ef4444;
-    color: white;
+    background: #fee2e2;
+    color: #b91c1c;
     border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 5px 10px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s ease;
 }
 
 .delete-btn:hover {
-    background: #dc2626;
+    background: #fecaca;
 }
+
 .ai-section {
     margin-top: 30px;
-    background: #111827;
+    background: linear-gradient(135deg, #1e3a8a, #111827);
     color: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 25px;
+    border-radius: 10px;
 }
 
 #aiMessage {
