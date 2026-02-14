@@ -1,6 +1,7 @@
 let entries = JSON.parse(localStorage.getItem("entries")) || [];
 
 // Select elements
+const aiMessage = document.getElementById("aiMessage");
 const entryList = document.getElementById("entryList");
 const addBtn = document.getElementById("addBtn");
 const nameInput = document.getElementById("name");
@@ -66,6 +67,7 @@ function updateDashboard() {
     totalLiabilitiesEl.textContent = "₹" + totalLiabilities;
     netWorthEl.textContent = "₹" + netWorth;
     localStorage.setItem("entries", JSON.stringify(entries));
+    generateInsights(totalAssets, totalLiabilities, netWorth);
 }
 
 
@@ -80,3 +82,31 @@ function deleteEntry(id) {
     updateDashboard();
 }
 updateDashboard();
+
+function generateInsights(totalAssets, totalLiabilities, netWorth) {
+
+    if (entries.length === 0) {
+        aiMessage.textContent = "👋 Welcome! Start by adding your assets and liabilities.";
+        return;
+    }
+
+    if (totalAssets === 0) {
+        aiMessage.textContent = "⚠️ You currently have liabilities but no assets. This is financially risky.";
+        return;
+    }
+
+    const debtRatio = totalLiabilities / totalAssets;
+
+    if (debtRatio > 0.5) {
+        aiMessage.textContent = "⚠️ Your debt ratio is high. Consider reducing liabilities to improve financial health.";
+    } else if (debtRatio < 0.3) {
+        aiMessage.textContent = "✅ Your debt ratio is healthy. Keep maintaining good financial discipline.";
+    } else {
+        aiMessage.textContent = "ℹ️ Your financial balance is moderate. Monitor spending carefully.";
+    }
+
+    if (netWorth > 100000) {
+        aiMessage.textContent += " 🚀 Great job! Your net worth is growing strong.";
+    }
+}
+
