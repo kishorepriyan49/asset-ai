@@ -145,3 +145,36 @@ header h1 {
     line-height: 1.6;
 }
 
+/* Responsive Design */
+
+@media (max-width: 992px) {
+    .cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .form-section input,
+    .form-section select,
+    .form-section button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
