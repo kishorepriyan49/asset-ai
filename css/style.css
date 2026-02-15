@@ -197,6 +197,21 @@ header h1 {
         width: 100%;
         margin-bottom: 10px;
     }
+
+    .charts {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .chart-box {
+        flex: 1;
+        min-width: 300px;
+        max-width: 450px;
+        height: 300px;
+}
+
 }
 
 #entryList li {
@@ -206,3 +221,22 @@ header h1 {
 #entryList li:hover {
     background: #f9fafb;
 }
+
+.chart-section {
+    margin-top: 30px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.charts {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+canvas {
+    max-width: 400px;
+}
+

@@ -50,20 +50,32 @@
             </select>
             <button id="addBtn">Add</button>
         </section>
-            <section class="list-section">
+
+        <section class="list-section">
             <h2>Entries</h2>
             <ul id="entryList"></ul>
         </section>
+
         <section class="ai-section">
             <h2>AI Financial Insights</h2>
             <div id="aiMessage">No insights yet.</div>
         </section>
 
-
+        <section class="chart-section">
+            <h2>Financial Overview</h2>
+            <div class="charts">
+                <div class="chart-box">
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </section>
     </main>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

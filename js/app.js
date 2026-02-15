@@ -1,3 +1,5 @@
+let pieChart;
+let barChart;
 let entries = JSON.parse(localStorage.getItem("entries")) || [];
 
 // Select elements
@@ -108,8 +110,60 @@ function generateInsights(totalAssets, totalLiabilities, netWorth) {
     if (netWorth > 100000) {
         aiMessage.textContent += " 🚀 Great job! Your net worth is growing strong.";
     }
+    updateCharts(totalAssets, totalLiabilities);
 }
+
 
 function formatCurrency(value) {
     return "₹" + value.toLocaleString("en-IN");
+}
+
+function updateCharts(totalAssets, totalLiabilities) {
+
+    const pieCtx = document.getElementById("pieChart").getContext("2d");
+    const barCtx = document.getElementById("barChart").getContext("2d");
+
+    if (pieChart) pieChart.destroy();
+    if (barChart) barChart.destroy();
+
+    pieChart = new Chart(pieCtx, {
+        type: "pie",
+        data: {
+            labels: ["Assets", "Liabilities"],
+            datasets: [{
+                data: [totalAssets, totalLiabilities],
+                backgroundColor: ["#2563eb", "#ef4444"]
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: "bottom"
+                }
+            }
+        }
+    });
+
+    barChart = new Chart(barCtx, {
+        type: "bar",
+        data: {
+            labels: ["Assets", "Liabilities"],
+            datasets: [{
+                label: "Amount (₹)",
+                data: [totalAssets, totalLiabilities],
+                backgroundColor: ["#2563eb", "#ef4444"]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
 }
