@@ -63,9 +63,9 @@ function updateDashboard() {
 
     const netWorth = totalAssets - totalLiabilities;
 
-    totalAssetsEl.textContent = "₹" + totalAssets;
-    totalLiabilitiesEl.textContent = "₹" + totalLiabilities;
-    netWorthEl.textContent = "₹" + netWorth;
+    totalAssetsEl.textContent = formatCurrency(totalAssets);
+    totalLiabilitiesEl.textContent = formatCurrency(totalLiabilities);
+    netWorthEl.textContent = formatCurrency(netWorth);
     localStorage.setItem("entries", JSON.stringify(entries));
     generateInsights(totalAssets, totalLiabilities, netWorth);
 }
@@ -110,3 +110,6 @@ function generateInsights(totalAssets, totalLiabilities, netWorth) {
     }
 }
 
+function formatCurrency(value) {
+    return "₹" + value.toLocaleString("en-IN");
+}

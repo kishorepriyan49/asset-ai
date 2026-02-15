@@ -1,4 +1,8 @@
 /* Reset */
+section {
+    margin-bottom: 30px;    
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -60,9 +64,10 @@ header h1 {
 .card {
     flex: 1;
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid #2563eb;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -98,16 +103,18 @@ header h1 {
 }
 
 .form-section button {
-    padding: 8px 15px;
+    padding: 10px 18px;
     background-color: #2563eb;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .form-section button:hover {
     background-color: #1d4ed8;
+    transform: translateY(-2px);
 }
 
 .list-section {
@@ -190,4 +197,12 @@ header h1 {
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+#entryList li {
+    transition: background 0.2s ease;
+}
+
+#entryList li:hover {
+    background: #f9fafb;
 }
